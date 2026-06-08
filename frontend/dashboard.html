@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BacheTrack AI — Dashboard Municipal</title>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Syne:wght@400;600;800&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-brand">
+      <span class="brand-icon">◈</span>
+      <div>
+        <h1>BacheTrack <span class="brand-ai">AI</span></h1>
+        <p class="brand-sub">Panel de Control Municipal</p>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="live-dot"></div>
+      <span class="live-label">EN VIVO</span>
+      <button id="btn-refresh" class="btn-refresh" onclick="cargarReportes()">
+        <span class="refresh-icon">↻</span> Actualizar
+      </button>
+    </div>
+  </header>
+
+  <!-- INDICADORES -->
+  <section class="indicadores">
+    <div class="card-indicador" id="card-total">
+      <span class="ind-numero" id="total-reportes">—</span>
+      <span class="ind-label">Total de reportes</span>
+    </div>
+    <div class="card-indicador bajo" id="card-bajo">
+      <span class="semaforo-dot bajo"></span>
+      <span class="ind-numero" id="total-bajo">—</span>
+      <span class="ind-label">Riesgo bajo</span>
+    </div>
+    <div class="card-indicador medio" id="card-medio">
+      <span class="semaforo-dot medio"></span>
+      <span class="ind-numero" id="total-medio">—</span>
+      <span class="ind-label">Riesgo medio</span>
+    </div>
+    <div class="card-indicador alto" id="card-alto">
+      <span class="semaforo-dot alto"></span>
+      <span class="ind-numero" id="total-alto">—</span>
+      <span class="ind-label">Riesgo alto</span>
+    </div>
+  </section>
+
+  <!-- SEMÁFORO GLOBAL -->
+  <section class="semaforo-global-wrap">
+    <span class="semaforo-titulo">Nivel de riesgo general de la ciudad:</span>
+    <span id="semaforo-badge" class="semaforo-badge">Cargando…</span>
+  </section>
+
+  <!-- MAPA + TABLA -->
+  <main class="main-grid">
+
+    <!-- MAPA -->
+    <section class="panel mapa-panel">
+      <div class="panel-header">
+        <span class="panel-title">🗺 Mapa de reportes</span>
+        <span class="panel-hint">Haz clic en un marcador para ver detalle</span>
+      </div>
+      <div id="mapa"></div>
+    </section>
+
+    <!-- TABLA -->
+    <section class="panel tabla-panel">
+      <div class="panel-header">
+        <span class="panel-title">📋 Reportes recibidos</span>
+        <span id="tabla-count" class="panel-hint"></span>
+      </div>
+      <div class="tabla-scroll">
+        <table id="tabla-reportes">
+          <thead>
+            <tr>
+              <th>#ID</th>
+              <th>Descripción</th>
+              <th>Latitud</th>
+              <th>Longitud</th>
+              <th>Fecha</th>
+              <th>Riesgo</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-reportes">
+            <tr>
+              <td colspan="6" class="td-vacio">Cargando datos…</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span>BacheTrack AI © 2025 — Hackathon</span>
+    <span id="ultima-actualizacion">—</span>
+  </footer>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+
+</html>
