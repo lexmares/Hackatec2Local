@@ -46,7 +46,7 @@ export default function App() {
       </main>
 
       <footer className="footer">
-        <span>AquaRoad AI © 2025 — Hackathon</span>
+        <span>Bachetrack AI © 2026 </span>
         <span>{ultimaActualizacion ? `Última actualización: ${ultimaActualizacion}` : '—'}</span>
       </footer>
     </>

@@ -1,3 +1,13 @@
+function nivelRiesgo(r, total) {
+    const n = (r.riesgo || r.risk || '').toLowerCase()
+    if (n.includes('alt')) return 'alto'
+    if (n.includes('med')) return 'medio'
+    if (n) return 'bajo'
+    if (total <= 2) return 'bajo'
+    if (total <= 5) return 'medio'
+    return 'alto'
+}
+
 function calcularRiesgo(total) {
     if (total <= 2) return 'bajo'
     if (total <= 5) return 'medio'
@@ -10,9 +20,9 @@ export default function Indicadores({ reportes }) {
 
     let bajo = 0, medio = 0, alto = 0
     reportes.forEach(r => {
-        const n = (r.riesgo || r.risk || '').toLowerCase()
-        if (n === 'alto' || n === 'high') alto++
-        else if (n === 'medio' || n === 'medium') medio++
+        const nivel = nivelRiesgo(r, total)
+        if (nivel === 'alto') alto++
+        else if (nivel === 'medio') medio++
         else bajo++
     })
 
