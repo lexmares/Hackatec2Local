@@ -1,0 +1,25 @@
+# Node
+node_modules/
+npm-debug.log
+
+# Backend
+backend/node_modules/
+backend/uploads/
+backend/*.db
+backend/*.sqlite
+backend/.env
+
+# Android
+android-app/.gradle/
+android-app/build/
+android-app/app/build/
+android-app/local.properties
+android-app/*.iml
+android-app/.idea/
+
+# VSCode
+.vscode/
+
+# Sistema
+.DS_Store
+Thumbs.db
